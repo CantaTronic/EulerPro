@@ -36,35 +36,18 @@ def realGrid():
     print(grid)
     return grid
   
-
-def leftToRight(grid):
-    #to make it simplier, here will be a sum of 4 adjacent numbers
+def common(grid, dirt='horz'):
+  #find maximum production of four adjacent numbers in horizontal or vertical derection
     max = 0
     for i in range(grid.shape[0]):
         for j in range (grid.shape[1]-3):
-            tmp = grid[i,j:j+4].prod()
-            #print(tmp, end=', ')
+            if (dirt=='horz'):
+                tmp = grid[i,j:j+4].prod()
+            elif (dirt=='vert'):
+                tmp = grid[j:j+4,i].prod()
             if (tmp > max) :
                 max = tmp
-        #print()
-    #print("max left to rigth = ", max)
     return max
-    #print(grid[9,-4:].sum())    #control check out
-    
-def upToDown(grid):
-    #to make it simplier, here will be a sum of 4 adjacent numbers
-    #print(grid[:4,0])
-    max = 0
-    for j in range (grid.shape[1]-3):
-        for i in range(grid.shape[0]):
-            tmp = grid[j:j+4,i].prod()
-            #print(tmp, end=', ')
-            if (tmp > max) :
-                max = tmp
-        #print()
-    #print("max up to down = ", max)
-    return max
-    #print(grid[-4:,9].sum())   #control check out
     
 def rightDiagonal(grid):
     max = 0
@@ -99,9 +82,7 @@ def leftDiagonal(grid):
     
 def testMS():
     #here I'll test more simple example
-    #grid = np.ones((10,10))
-    #grid = np.arange(100).reshape((10,10))
-    grid = realGrid()
+    grid = np.arange(100).reshape((10,10))
     #print(grid)
     print(leftToRight(grid))
     print(upToDown(grid))
@@ -111,11 +92,14 @@ def testMS():
       
 
 def main(argv=None):
-    #create a grid
-    #look for the greather product from left to right (it'll be the same as from right to left)
-    #-//-//- up to down
-    #-//-//- diagonally
-    pass
+    grid = realGrid()
+    print(common(grid, 'horz'))
+    print(common(grid, 'vert'))
+    
+    #print(sol)
+    print(rightDiagonal(grid))
+    print(leftDiagonal(grid))
+    sys.exit(0)
 
 if __name__ == "__main__":
-    sys.exit(testMS())
+    sys.exit(main())
