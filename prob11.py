@@ -33,7 +33,7 @@ def realGrid():
     01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48"
     tmp_grid = np.fromstring(my_grid, dtype=int, sep=' ')
     grid = np.reshape(tmp_grid,(20,20))
-    print(grid)
+    #print(grid)
     return grid
   
 def common(grid, dirt='horz'):
@@ -64,10 +64,7 @@ def commonDiag (grid, dirt = 'right'):
     
 def main(argv=None):
     grid = realGrid()
-    print(common(grid, 'horz'))
-    print(common(grid, 'vert'))
-    print(commonDiag (grid, 'right'))
-    print(commonDiag (grid, 'left'))
+    print("Result: ", max(common(grid, 'horz'), common(grid, 'vert'), commonDiag (grid, 'right'), commonDiag (grid, 'left')))
     sys.exit(0)
 
 if __name__ == "__main__":
