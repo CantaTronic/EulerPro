@@ -49,56 +49,25 @@ def common(grid, dirt='horz'):
                 max = tmp
     return max
     
-def rightDiagonal(grid):
+def commonDiag (grid, dirt = 'right'):
     max = 0
-    max_dig = 0
     for i in range(grid.shape[0]-3):
         for j in range (grid.shape[1] - 3):
-            tmp = np.diagonal(grid[j:4+j], offset=i).prod()
-            dig = np.diagonal(grid[j:4+j], offset=i)
+            if (dirt == 'right'):
+                tmp = np.diagonal(grid[j:4+j], offset=i).prod()
+            elif (dirt == 'left'):
+                tmp = np.diagonal(np.rot90(grid,1)[j:4+j], offset=i).prod()
             if (tmp > max) :
                 max = tmp
-                max_dig = dig
-    #print("max right diag", max)
     return max
-    #print('dig = ', dig)
-            
-def leftDiagonal(grid):
-    #print(np.rot90(grid,2))
-    #print(np.diagonal(np.rot90(grid,2), offset=0))
-    max = 0
-    max_dig = 0
-    for i in range(grid.shape[0]-3):
-        for j in range (grid.shape[1] - 3):
-            tmp = np.diagonal(np.rot90(grid,1)[j:4+j], offset=i).prod()
-            dig = np.diagonal(np.rot90(grid,1)[j:4+j], offset=i)
-            #print(np.diagonal(np.rot90(grid,1)[j:4+j], offset=i))
-            if (tmp > max) :
-                max = tmp
-                max_dig = dig
-    #print("max left diag", max)
-    return max
-    #print('dig = ', dig)
     
-def testMS():
-    #here I'll test more simple example
-    grid = np.arange(100).reshape((10,10))
-    #print(grid)
-    print(leftToRight(grid))
-    print(upToDown(grid))
-    print(rightDiagonal(grid))
-    print(leftDiagonal(grid))
-    sys.exit(0)
-      
-
+    
 def main(argv=None):
     grid = realGrid()
     print(common(grid, 'horz'))
     print(common(grid, 'vert'))
-    
-    #print(sol)
-    print(rightDiagonal(grid))
-    print(leftDiagonal(grid))
+    print(commonDiag (grid, 'right'))
+    print(commonDiag (grid, 'left'))
     sys.exit(0)
 
 if __name__ == "__main__":
