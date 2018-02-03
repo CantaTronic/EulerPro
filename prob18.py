@@ -2,10 +2,19 @@
 from __future__ import print_function
 import sys
 import numpy as np
+
+def alg(mSize, fname):
+  #walk around the tree
+  my_matr = readMatr(mSize, fname)
+  for i in range((mSize - 1),-1,-1):
+    for j in range(i):
+      sum1 = my_matr[i-1][j] + my_matr[i][j]
+      sum2 = my_matr[i-1][j] + my_matr[i][j+1]
+      my_matr[i-1][j] = max(sum1, sum2)
+  return my_matr[0][0]
  
 def test():
-  my_matr = readMatr(4, "my_test_matr.txt")
-  print (my_matr)
+  print("test = ", alg(4, "my_test_matr.txt"))
   
 def readMatr(matrSize, fname):
   #read diagonal matr of size matrSize from file fname into memory
@@ -22,6 +31,7 @@ def readMatr(matrSize, fname):
 
 def main():
   test()
+  #print("test = ", alg(4, "my_test_matr.txt"))
 
 if __name__ == "__main__":
   sys.exit(main())
