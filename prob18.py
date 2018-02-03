@@ -14,7 +14,7 @@ def alg(mSize, fname):
   return my_matr[0][0]
  
 def test():
-  print("test = ", alg(4, "my_test_matr.txt"))
+  print("test = ", alg(4, "my_test_matr18.txt"))
   
 def readMatr(matrSize, fname):
   #read diagonal matr of size matrSize from file fname into memory
@@ -30,8 +30,8 @@ def readMatr(matrSize, fname):
   return a
 
 def main():
-  test()
-  #print("test = ", alg(4, "my_test_matr.txt"))
+  #test()
+  print("result = ", alg(15, "my_matr18.txt"))
 
 if __name__ == "__main__":
   sys.exit(main())
