@@ -31,7 +31,9 @@ def readMatr(matrSize, fname):
 
 def main():
   #test()
-  print("result = ", alg(15, "my_matr18.txt"))
+  #print("result = ", alg(15, "my_matr18.txt"))
+  #try to use the same algo to solve problem 67...
+  print("result for prob67 = ", alg(100, "p067_triangle.txt"))
 
 if __name__ == "__main__":
   sys.exit(main())
