@@ -25,7 +25,9 @@ def nameGen(num):
       secDig = num - fisrtDig*100
       numName = my_dict[fisrtDig]+" "+my_dict[100]
       if (secDig != 0):
-        numName = numName+ " " + nameGen(secDig)
+        #if (secDig>10):
+          #numName = numName+ " and "
+        numName = numName+ " and " + nameGen(secDig)
       return numName
 
 
@@ -39,18 +41,26 @@ def countLetters(my_dict):
     my_sum = my_sum + cleanStr(my_dict[i])
   return my_sum
 
-def test():
+def tests():
   print(cleanStr("three hundred and forty-two"))
+  print(cleanStr(nameGen(342)))
   print(cleanStr("one hundred and fifteen"))
+  print(cleanStr(nameGen(115)))
   my_dict = {1: 'one', 2: 'two', 3: 'three', 4:'four', 5:'five'}
   print(countLetters(my_dict))
+  #for i in range(1, 1001):
+    #print(nameGen(i))
   pass
 
 def main():
+    my_sum = 0
     for i in range(1, 1001):
-        print(nameGen(i))
+      #pass
+        #print(nameGen(i))
+        my_sum = my_sum + cleanStr(nameGen(i))
+    print(my_sum+3)
     sys.exit(0)
 
 if __name__ == "__main__":
-  #test()
+  #tests()
   sys.exit(main())
