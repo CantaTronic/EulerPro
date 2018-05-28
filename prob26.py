@@ -17,9 +17,47 @@ Find the value of d < 1000 for which 1/d contains the longest recurring cycle in
 
 from __future__ import print_function
 import sys
+import numpy as np
+from mpmath import *
+
+def test_precision():
+  #the correct meaning of 1/3 is 0.(3)
+  
+  #np.float64 - gives mantissa 16 maximum, 16-teen 3 after the .
+  tmp = str(np.float64(1/3.0))
+  print("float64 \t", tmp)
+  
+  #mpmath - provides big mantissa (50 and more), but only first 16teen are 3s.
+  mp.dps = 20
+  tmp1 = str(mpf(1/3.0))
+  print("mpmath \t\t", tmp1)
+
+def all_equal(inp_str):
+  #if all numbers in the list are equal, the period lenght is 1
+  res = True
+  for i in range(1,len(inp_str)):
+    res &= inp_str[i] == inp_str[i-1]
+  return res
+  
+def all_diff(inp_str):
+    #if all digits are different, we have two probabilities:
+    #1. the period is longer than 16 (anyway we can't catch it)
+    #2. there is no period here
+  
+  
+def period(inp_str):
+  seq=inp_str[0]
+  print("cur seq: ", seq)
+  #if seq[1] !=
+  return False
+  
 
 def main():
-  pass
+  #all_equal("111")
+  print("111", all_equal("111")) #True
+  print("123", all_equal("123")) #False
+  print("1212", all_equal("1212")) #True
+  
 
 if __name__ == "__main__":
   sys.exit(main())
