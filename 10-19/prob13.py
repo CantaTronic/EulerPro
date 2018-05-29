@@ -10,7 +10,8 @@ import sys
 import numpy as np
 
 def main():
-  f = open("bigNumber13.txt")
+  #filepath = "/home/victoria/Progs_local/EulerPro/data/"
+  f = open(filepath+"bigNumber13.txt", 'r')
   bigSum = 0
   for line in f:
     bigSum = bigSum + int(line.rstrip())       #remove eol simbol out of line
