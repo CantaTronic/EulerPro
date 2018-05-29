@@ -1,3 +1,5 @@
+#!/bin/python
+#-*- coding: utf-8 -*-
 
 from __future__ import print_function
 import sys
@@ -5,8 +7,8 @@ import sys
 '''
 See the full condition at https://projecteuler.net/problem=14 
 
-#n → n/2 (n is even)
-#n → 3n + 1 (n is odd)
+#n -> n/2 (n is even)
+#n -> 3n + 1 (n is odd)
 
 '''
 

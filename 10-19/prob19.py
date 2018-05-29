@@ -33,8 +33,8 @@ def getDayCount():
   startMonth = 1  #January
   startYear = 1901 #startYear
   countSund = 0
-  print(" ===== ", startYear, " ===== ")
-  print(startMonth, "'s first day", FirstDay)
+  #print(" ===== ", startYear, " ===== ")         #debug
+  #print(startMonth, "'s first day", FirstDay)    #debug
   while (startYear < 2001):
     FirstDay = dayShift(FirstDay, startMonth, startYear)
     if (FirstDay == 0):
@@ -43,9 +43,9 @@ def getDayCount():
     if (startMonth == 13):
       startMonth = 1
       startYear += 1
-      print(" ===== ", startYear, " ===== ")
-    print(startMonth, "'s first day", FirstDay)
-  print ("I count ", countSund, " Sundays so far")
+      #print(" ===== ", startYear, " ===== ")     #debug
+    #print(startMonth, "'s first day", FirstDay)  #debug
+  print ("I've counted ", countSund, " Sundays so far")
   
 
 if __name__ == "__main__":

@@ -14,7 +14,7 @@ def alg(mSize, fname):
   return my_matr[0][0]
  
 def test():
-  print("test = ", alg(4, "my_test_matr18.txt"))
+  print("test = ", alg(4, filepath+"my_test_matr18.txt"))
   
 def readMatr(matrSize, fname):
   #read diagonal matr of size matrSize from file fname into memory
@@ -31,9 +31,10 @@ def readMatr(matrSize, fname):
 
 def main():
   #test()
-  #print("result = ", alg(15, "my_matr18.txt"))
+  filepath = "/home/victoria/Progs_local/EulerPro/data/"
+  print("result for prob18 = ", alg(15, filepath+"my_matr18.txt"))
   #try to use the same algo to solve problem 67...
-  print("result for prob67 = ", alg(100, "p067_triangle.txt"))
+  print("result for prob67 = ", alg(100, filepath+"p067_triangle.txt"))
 
 if __name__ == "__main__":
   sys.exit(main())
