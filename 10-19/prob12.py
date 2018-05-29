@@ -1,4 +1,12 @@
 
+'''
+Highly divisible triangular number
+
+What is the value of the first triangle number to have over five hundred divisors?
+
+link: https://projecteuler.net/problem=12
+'''
+
 from __future__ import print_function
 import sys
 import numpy as np
@@ -10,6 +18,7 @@ def getTrgNum(n):
   return tr_num
 
 def divisor(number):
+  #count number of divisors
   a = np.empty((1), int)
   i = int(math.sqrt(number))
   while (i > 0):
@@ -21,11 +30,13 @@ def divisor(number):
   return divNumb
 
 def main():
-  for i in range (1,1000000):
-    tmp = getTrgNum(i)
-    divNumb = divisor(tmp)
-    print("i = ", i, ", num = ", getTrgNum(i), ", divNum = ", divNumb)
+  upper_lim = 1000000
+  for i in range (1, upper_lim):
+    tmp = getTrgNum(i)  #calculate i-th triangular number
+    divNumb = divisor(tmp)  #get number of divisors
+    #print("i = ", i, ", num = ", getTrgNum(i), ", divNum = ", divNumb)    #debug
     if (divNumb > 500):
+      print("Answer:", getTrgNum(i))
       break
   sys.exit(0)
 
